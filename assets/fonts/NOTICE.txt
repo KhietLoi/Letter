@@ -1,0 +1,22 @@
+Bundled Noto fonts. Original font files, unmodified.
+
+NotoSerif-Regular.ttf
+Copyright 2012 Google Inc. All Rights Reserved.
+Licensed under the Apache License, Version 2.0
+http://www.apache.org/licenses/LICENSE-2.0
+
+NotoSerif-Italic.ttf
+Copyright 2012 Google Inc. All Rights Reserved.
+Licensed under the Apache License, Version 2.0
+http://www.apache.org/licenses/LICENSE-2.0
+
+NotoSans-Regular.ttf
+Copyright 2012 Google Inc. All Rights Reserved.
+Licensed under the Apache License, Version 2.0
+http://www.apache.org/licenses/LICENSE-2.0
+
+NotoSans-Bold.ttf
+Copyright 2012 Google Inc. All Rights Reserved.
+Licensed under the Apache License, Version 2.0
+http://www.apache.org/licenses/LICENSE-2.0
+
