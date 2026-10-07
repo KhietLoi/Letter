@@ -3,8 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiệp mời tốt nghiệp · Khiết Lôi</title>
-    <script>window.location.replace(new URL('test.html' + window.location.search + window.location.hash, window.location.href).href);</script>
+    <meta name="theme-color" content="#244c73">
+    <meta name="description" content="Một lời mời đến chung vui cùng Trần Khiết Lôi trong ngày tốt nghiệp, 17.10.2026.">
+    <title>Lời mời tốt nghiệp · Trần Khiết Lôi</title>
+    <link rel="preload" href="assets/fonts/NotoSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/NotoSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <style>
+        @font-face { font-family: "Invitation Serif"; src: url("assets/fonts/NotoSerif-Regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+        @font-face { font-family: "Invitation Serif"; src: url("assets/fonts/NotoSerif-Italic.ttf") format("truetype"); font-style: italic; font-weight: 400; font-display: swap; }
+        @font-face { font-family: "Invitation Sans"; src: url("assets/fonts/NotoSans-Regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
+        @font-face { font-family: "Invitation Sans"; src: url("assets/fonts/NotoSans-Bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; }
+        :root { color-scheme: light; --ink: #244c73; --muted: #6b7e91; --paper: #fffefa; --gold: #a88548; --line: #cbd9e6; --serif: "Invitation Serif", "Noto Serif", Cambria, serif; --sans: "Invitation Sans", "Noto Sans", Arial, sans-serif; }
+        * { box-sizing: border-box; }
+        body { margin: 0; color: var(--ink); font-family: var(--sans); line-height: 1.6; letter-spacing: normal; word-spacing: normal; background: #eaf0f6; }
+        button, input, textarea { font: inherit; }
+        button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+        button { cursor: pointer; }
+        button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
+        button:disabled { opacity: .6; cursor: default; }
+        [hidden] { display: none !important; }
+        .icon { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .scene { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: -1; }
+        .scene::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 12% 18%, #dce7f2 0, transparent 48%), radial-gradient(ellipse at 92% 85%, #e0eaf4 0, transparent 45%), #eaf0f6; }
+        .scene::after { content: ""; position: absolute; width: 720px; height: 720px; top: -440px; right: -230px; border: 1px solid #a7bfd55e; border-radius: 50%; box-shadow: 0 0 0 36px #a7bfd512, 0 0 0 80px #a7bfd512; }
+        .mote { position: absolute; width: 4px; height: 4px; background: #ad945da8; border-radius: 50%; animation: drift 12s ease-in-out infinite alternate; }
+        .mote:nth-child(1) { left: 8%; top: 26%; }
+        .mote:nth-child(2) { left: 88%; top: 33%; animation-delay: -6s; width: 3px; height: 3px; }
+        .mote:nth-child(3) { left: 14%; top: 81%; animation-delay: -4s; }
+        .mote:nth-child(4) { left: 92%; top: 76%; animation-delay: -9s; }
+        .site-header { max-width: 1100px; margin: auto; padding: 30px 32px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .wordmark { display: flex; gap: 12px; align-items: center; }
+        .wordmark-symbol { font: italic 32px var(--serif); letter-spacing: -4px; padding-right: 3px; }
+        .wordmark-text { padding-left: 12px; border-left: 1px solid #b2c4d6; }
+        .wordmark-text strong { display: block; font: 18px var(--serif); }
+        .wordmark-text span { display: block; font-size: 10px; letter-spacing: .08em; margin-top: 5px; color: var(--muted); }
+        .editor-trigger { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #afc4d8; border-radius: 30px; background: transparent; color: var(--ink); padding: 10px 16px; font-size: 12px; transition: background .2s, transform .2s; }
+        .editor-trigger:hover { background: #fffdf68c; transform: translateY(-2px); }
+        .header-date { font-size: 11px; letter-spacing: .06em; color: var(--muted); }
+        main { padding: 22px 32px 20px; }
+        .intro { text-align: center; margin: 0 0 25px; }
+        .intro span { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+        .intro span::before { content: ""; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+        .invitation { max-width: 1030px; margin: auto; position: relative; display: grid; grid-template-columns: 1.3fr 1fr; background: var(--paper); border-radius: 3px; box-shadow: 0 28px 70px -28px #244c7340, 0 2px 4px #244c730a; overflow: hidden; }
+        .invitation::before { content: ""; position: absolute; inset: 15px; border: 1px solid var(--line); pointer-events: none; z-index: 2; }
+        .card-main { position: relative; padding: 53px 45px 43px 54px; text-align: center; overflow: hidden; container-type: inline-size; }
+        .card-main::before { content: ""; position: absolute; width: 480px; height: 480px; top: 36px; left: 50%; transform: translateX(-50%); border-radius: 50%; border: 1px solid #cbd9e64d; pointer-events: none; }
+        .cap { width: 55px; height: 42px; margin-bottom: 19px; color: var(--gold); }
+        .eyebrow { margin: 0; font-size: 10px; letter-spacing: .14em; font-weight: 400; }
+        h1 { margin: 19px 0 10px; font: 48px/1.3 var(--serif); font-size: clamp(22px, 13.5cqi, 48px); font-weight: 400; letter-spacing: normal; white-space: nowrap; }
+        h1 em { display: inline; font-weight: 400; color: #527fa8; }
+        .title-note { font: italic 15px/1.8 var(--serif); color: var(--muted); margin: 15px 0 24px; }
+        .ornament { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--gold); font-size: 12px; }
+        .ornament::before, .ornament::after { content: ""; width: 48px; height: 1px; background: #c6b992; }
+        .guest-label { margin: 23px 0 9px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+        .guest-name { margin: 0; font: 32px/1.5 var(--serif); overflow-wrap: break-word; }
+        .guest-name:focus { outline: none; }
+        .guest-name.long-name { font-size: 26px; }
+        .message { max-width: 360px; margin: 17px auto 0; font-size: 13px; line-height: 1.85; color: var(--muted); text-wrap: pretty; }
+        .signature { margin-top: 29px; }
+        .signature p { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 9px; }
+        .signature strong { font: italic 25px/1.5 var(--serif); font-weight: 400; }
+        .card-details { position: relative; padding: 48px 43px 41px; background: #eff4fa; border-left: 1px solid #d8e3ee; display: flex; flex-direction: column; align-items: center; }
+        .botanical { position: absolute; width: 128px; height: 180px; top: 0; right: 0; color: #86a8c6; opacity: .45; pointer-events: none; }
+        .seal { width: 44px; height: 44px; border: 1px solid #a7bfd5; border-radius: 50%; display: grid; place-items: center; font: italic 17px var(--serif); outline: 1px solid #a7bfd55c; outline-offset: 4px; margin: 2px 0 21px; }
+        .date-caption { margin: 0; text-align: center; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+        .date-display { display: flex; align-items: center; gap: 17px; margin: 12px 0 6px; font: 52px/1.25 var(--serif); letter-spacing: normal; }
+        .date-display i { width: 1px; height: 38px; background: #aebfd1; transform: rotate(17deg); }
+        .year { font-size: 12px; letter-spacing: .18em; padding-left: .18em; margin: 0; color: var(--muted); }
+        .detail-rule { width: 100%; height: 1px; background: var(--line); margin: 27px 0 24px; }
+        .event-block { width: 100%; display: flex; align-items: flex-start; gap: 12px; }
+        .event-block + .event-block { margin-top: 23px; }
+        .event-block .icon { width: 17px; margin-top: 1px; color: var(--gold); }
+        .event-block .label { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+        .event-block strong { display: block; font: 17px/1.65 var(--serif); font-weight: 400; }
+        .event-block p { margin: 7px 0 0; font-size: 12px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+        .map-link { display: inline-flex; align-items: center; justify-content: center; gap: 9px; color: var(--ink); border: 1px solid #afc4d8; text-decoration: none; border-radius: 3px; padding: 11px 17px; font-size: 11px; margin-top: 24px; width: 100%; transition: background .2s, border-color .2s; }
+        .map-link:hover { background: #e0ebf5; border-color: var(--ink); }
+        .closing { margin: auto 0 0; padding-top: 24px; text-align: center; font: italic 14px/1.6 var(--serif); color: #758ca4; }
+        .page-footer { display: flex; justify-content: center; align-items: center; gap: 11px; margin: 28px auto 8px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #8198ad; }
+        .page-footer b { color: var(--gold); font-weight: 400; }
+        .replay { display: block; margin: 17px auto 0; background: none; border: 0; color: var(--muted); font-size: 11px; padding: 8px 12px; text-decoration: underline; text-underline-offset: 4px; }
+        .cover { position: fixed; inset: 0; z-index: 10; display: flex; flex-direction: column; justify-content: safe center; align-items: center; overflow-y: auto; background: radial-gradient(ellipse at 50% 35%, #446b92, #203f61 65%); color: var(--paper); padding: 30px 20px; text-align: center; transition: opacity .75s ease, visibility .75s; }
+        .cover > * { flex-shrink: 0; }
+        .cover::before { content: ""; position: absolute; inset: 18px; border: 1px solid #c9b98738; pointer-events: none; }
+        .cover.opening { opacity: 0; visibility: hidden; pointer-events: none; }
+        .cover-kicker { font-size: 10px; letter-spacing: .12em; color: #d9cba4; margin: 0 0 17px; }
+        .cover h2 { font: 36px/1.45 var(--serif); font-weight: 400; margin: 0; }
+        .cover-name { margin: 13px 0 0; color: #d9cba4; font: italic 24px/1.6 var(--serif); max-width: min(500px, 100%); overflow-wrap: break-word; }
+        .envelope { width: 300px; height: 185px; position: relative; margin: 57px 0 38px; filter: drop-shadow(0 20px 22px #17345150); animation: envelope-float 5s ease-in-out infinite; perspective: 800px; }
+        .envelope-back { position: absolute; inset: 0; background: #d9d4bb; border-radius: 3px; }
+        .envelope-letter { position: absolute; top: -21px; left: 20px; right: 20px; height: 161px; background: var(--paper); border-radius: 3px; color: var(--ink); padding: 19px; transition: transform .6s ease; }
+        .envelope-letter::before { content: ""; position: absolute; inset: 8px; border: 1px solid #d7d5c2; }
+        .envelope-letter span { display: block; font: italic 23px var(--serif); }
+        .envelope-letter small { display: block; font-size: 8px; letter-spacing: 2px; margin-top: 8px; color: var(--gold); }
+        .envelope-front { position: absolute; inset: 0; background: #eae5cc; clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%); border-radius: 3px; }
+        .envelope-front::after { content: ""; position: absolute; inset: 0; background: #f3efd9; clip-path: polygon(0 100%, 50% 43%, 100% 100%); }
+        .envelope-flap { position: absolute; inset: 0; background: #dfdac0; clip-path: polygon(0 0, 100% 0, 50% 56%); transform-origin: top; transition: transform .45s ease; }
+        .wax-seal { position: absolute; top: 77px; left: 126px; width: 48px; height: 48px; display: grid; place-items: center; background: #52799c; border: 3px double #92b1cd; outline: 3px solid #52799c; border-radius: 50%; color: #f0e8ca; font: italic 18px var(--serif); box-shadow: 0 3px 5px #244c7329; transition: opacity .2s; }
+        .cover.opening .envelope { animation: none; }
+        .cover.opening .envelope-flap { transform: rotateX(180deg); }
+        .cover.opening .envelope-letter { transform: translateY(-68px); }
+        .cover.opening .wax-seal { opacity: 0; }
+        .open-button { display: inline-flex; align-items: center; justify-content: center; gap: 22px; border: 1px solid #d9cba47a; border-radius: 30px; background: #f4eedb; color: var(--ink); padding: 14px 25px; font-size: 12px; transition: background .2s, transform .2s; }
+        .open-button:hover { background: white; transform: translateY(-2px); }
+        .cover-note { font-size: 10px; color: #b8cde0; margin: 21px 0 0; letter-spacing: .5px; }
+        body.cover-active { overflow: hidden; }
+        body.revealed .invitation { animation: card-reveal 1s ease both; }
+        body.revealed .reveal { animation: rise .8s ease both; animation-delay: var(--delay, .2s); }
+        .confetti { position: fixed; top: -15px; width: 6px; height: 10px; z-index: 9; pointer-events: none; opacity: 0; animation: confetti-fall 3.6s ease-in forwards; }
+        dialog { width: min(530px, calc(100% - 32px)); max-height: calc(100dvh - 40px); padding: 30px; border: 1px solid #cbd9e6; border-radius: 12px; background: var(--paper); color: var(--ink); box-shadow: 0 20px 80px #132c3b40; }
+        dialog::backdrop { background: #203f616e; backdrop-filter: blur(5px); }
+        .dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 10px; }
+        dialog h2 { font: 28px var(--serif); font-weight: 400; margin: 0; }
+        .close-dialog { width: 32px; height: 32px; border: 1px solid #cbd9e6; background: transparent; border-radius: 50%; color: var(--ink); display: grid; place-items: center; }
+        .dialog-description { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 0 0 22px; }
+        .field-label { display: block; font-size: 11px; font-weight: 600; margin-bottom: 8px; }
+        input, textarea { width: 100%; border: 1px solid #bfcfdf; border-radius: 5px; background: white; color: var(--ink); padding: 12px; font-size: 13px; outline: none; }
+        input:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px #a885481a; }
+        #guestInput { margin-bottom: 18px; }
+        #generatedLink { font-size: 11px; color: var(--muted); }
+        .dialog-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+        .primary-button, .secondary-button { border-radius: 5px; padding: 11px 15px; font-size: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .primary-button { border: 1px solid var(--ink); background: var(--ink); color: white; }
+        .primary-button:hover { background: #3b648a; }
+        .secondary-button { border: 1px solid #bfcfdf; background: transparent; color: var(--ink); }
+        .status { min-height: 20px; font-size: 11px; line-height: 1.8; color: #38668e; margin: 12px 0 0; }
+        .hosting-note { padding: 12px 14px; background: #f2eddb; border-radius: 5px; font-size: 11px; line-height: 1.8; color: #796645; margin-top: 16px; }
+        details { margin-top: 17px; padding-top: 17px; border-top: 1px solid #d8e3ee; }
+        summary { cursor: pointer; font-size: 12px; }
+        .bulk-description { font-size: 11px; color: var(--muted); line-height: 1.7; }
+        textarea { min-height: 100px; resize: vertical; line-height: 1.7; }
+        .bulk-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; }
+        .bulk-list li { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 9px 11px; border: 1px solid #d8e3ee; border-radius: 5px; }
+        .bulk-list a { min-width: 0; overflow-wrap: anywhere; font-size: 12px; color: var(--ink); text-underline-offset: 3px; }
+        .bulk-list button { flex-shrink: 0; font-size: 10px; padding: 7px 9px; border: 0; background: #e9f0f8; color: var(--ink); border-radius: 4px; }
+        .noscript { text-align: center; padding: 15px; color: var(--muted); font-size: 12px; }
+        @keyframes drift { from { transform: translate(0, 0); opacity: .25; } to { transform: translate(15px, -40px); opacity: .9; } }
+        @keyframes envelope-float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-8px) rotate(0); } }
+        @keyframes card-reveal { from { opacity: 0; transform: translateY(30px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes confetti-fall { 0% { opacity: 0; transform: translateY(0) rotate(0); } 10% { opacity: .85; } 85% { opacity: .65; } 100% { opacity: 0; transform: translate(var(--sway), 105vh) rotate(580deg); } }
+        @media (min-width: 1400px) { main { padding-top: 45px; } }
+        @media (max-width: 760px) {
+            .site-header { padding: 22px 20px 12px; }
+            .wordmark-text strong { font-size: 16px; }
+            .wordmark-text span { font-size: 9px; letter-spacing: .06em; }
+            .wordmark-symbol { font-size: 28px; }
+            .header-date { font-size: 10px; letter-spacing: .03em; text-align: right; line-height: 1.7; }
+            .editor-trigger { padding: 9px 11px; font-size: 10px; gap: 6px; }
+            main { padding: 20px 18px; }
+            .intro { margin-bottom: 20px; }
+            .intro span { font-size: 10px; letter-spacing: .06em; }
+            .invitation { grid-template-columns: 1fr; max-width: 480px; }
+            .invitation::before { inset: 11px; }
+            .card-main { padding: 42px 30px 35px; }
+            .card-main::before { width: 350px; height: 350px; top: 75px; }
+            .cap { width: 46px; height: 35px; margin-bottom: 16px; }
+            h1 { margin-top: 16px; }
+            .eyebrow { font-size: 10px; letter-spacing: .12em; }
+            .title-note { font-size: 14px; margin-bottom: 20px; }
+            .guest-name { font-size: 28px; }
+            .guest-name.long-name { font-size: 23px; }
+            .guest-label { margin-top: 20px; }
+            .message { max-width: 310px; font-size: 13px; }
+            .signature { margin-top: 24px; }
+            .signature strong { font-size: 24px; }
+            .card-details { padding: 35px 33px 34px; border-left: 0; border-top: 1px solid #d8e3ee; }
+            .seal { display: none; }
+            .botanical { width: 105px; height: 150px; }
+            .date-display { font-size: 48px; }
+            .detail-rule { margin: 23px 0; }
+            .event-block, .map-link { max-width: 330px; }
+            .closing { padding-top: 22px; }
+            .page-footer { font-size: 8px; letter-spacing: 1.3px; gap: 8px; }
+            .cover h2 { font-size: clamp(25px, 7.4vw, 31px); }
+            .cover-name { font-size: 23px; }
+            .cover-kicker { font-size: 9px; letter-spacing: .1em; }
+            .envelope { margin-top: 49px; }
+            dialog { padding: 24px; }
+        }
+        @media (max-width: 360px) {
+            .wordmark-text span { letter-spacing: .8px; }
+            .wordmark { gap: 8px; }
+            .editor-trigger .icon { display: none; }
+            .card-main { padding-left: 22px; padding-right: 22px; }
+            .envelope { width: 260px; height: 165px; }
+            .wax-seal { left: 106px; top: 67px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+            .confetti { display: none; }
+        }
+    </style>
 </head>
-<body><p><a href="test.html">Mở thiệp mời tốt nghiệp</a></p></body>
+<body>
+    <div class="scene" aria-hidden="true"><span class="mote"></span><span class="mote"></span><span class="mote"></span><span class="mote"></span></div>
+    <header class="site-header">
+        <div class="wordmark"><span class="wordmark-symbol" aria-hidden="true">kl.</span><div class="wordmark-text"><strong>Khiết Lôi</strong><span>GRADUATION · 2026</span></div></div>
+        <button class="editor-trigger" id="createLinkButton" type="button" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l2-2"/></svg>Tạo link mời</button>
+        <span class="header-date" id="headerDate">17 THÁNG 10, 2026</span>
+    </header>
+    <main id="mainContent">
+        <div class="intro"><span>Một cột mốc, một lời mời</span></div>
+        <article class="invitation" aria-label="Thiệp mời tốt nghiệp">
+            <section class="card-main">
+                <svg class="cap reveal" viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 15 32 3l29 12-29 12L3 15Z"/><path d="M16 21v13c9 7 23 7 32 0V21M57 17v17M54 35h6l2 8h-10l2-8Z"/><path d="m32 15 25 2"/></svg>
+                <p class="eyebrow reveal">YOU'RE INVITED TO MY</p>
+                <h1 class="reveal" style="--delay: .3s">Lễ <em>tốt nghiệp</em></h1>
+                <p class="title-note reveal" style="--delay: .4s">Khép lại một hành trình. Mở ra một giấc mơ.</p>
+                <div class="ornament reveal" style="--delay: .45s" aria-hidden="true">✧</div>
+                <p class="guest-label reveal" style="--delay: .5s">Thân mời</p>
+                <h2 class="guest-name reveal" id="guestName" style="--delay: .55s">Bạn thân mến</h2>
+                <p class="message reveal" style="--delay: .65s">Đến chung vui cùng mình trong ngày tốt nghiệp. Sự hiện diện của bạn sẽ khiến khoảnh khắc này trở nên thật trọn vẹn.</p>
+                <div class="signature reveal" style="--delay: .75s"><p>Với thật nhiều niềm vui</p><strong>Trần Khiết Lôi</strong></div>
+            </section>
+            <section class="card-details" aria-label="Thông tin buổi lễ">
+                <svg class="botanical" viewBox="0 0 140 200" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M139 0C73 60 133 96 48 197M107 44C75 43 67 23 70 11c29 2 42 16 37 33ZM102 67c26-14 31-31 22-45-22 13-27 28-22 45ZM103 93c-32 0-46-15-46-33 28-4 43 11 46 33ZM91 125c26-2 42-18 38-36-29 0-39 17-38 36ZM80 148c-28 0-43-16-44-33 27-3 41 13 44 33ZM63 174c28 0 41-12 42-30-26-3-42 12-42 30Z"/></svg>
+                <div class="seal reveal" aria-hidden="true">KL</div>
+                <p class="date-caption reveal" style="--delay: .35s">Hẹn bạn vào thứ Bảy</p>
+                <div class="date-display reveal" style="--delay: .4s" aria-label="Ngày 17 tháng 10"><span>17</span><i aria-hidden="true"></i><span>10</span></div>
+                <p class="year reveal" style="--delay: .45s">2026</p>
+                <div class="detail-rule" aria-hidden="true"></div>
+                <div class="event-block reveal" style="--delay: .5s"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><span class="label">Thời gian</span><strong>Buổi sáng · 17.10.2026</strong></div></div>
+                <div class="event-block reveal" style="--delay: .6s"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><span class="label">Địa điểm</span><strong>Trường Đại học Tôn Đức Thắng</strong><p>19 Nguyễn Hữu Thọ, phường Tân Hưng, Thành phố Hồ Chí Minh</p></div></div>
+                <a class="map-link reveal" style="--delay: .7s" href="https://www.google.com/maps/search/?api=1&amp;query=Tr%C6%B0%E1%BB%9Dng%20%C4%90%E1%BA%A1i%20h%E1%BB%8Dc%20T%C3%B4n%20%C4%90%E1%BB%A9c%20Th%E1%BA%AFng%2C%2019%20Nguy%E1%BB%85n%20H%E1%BB%AFu%20Th%E1%BB%8D" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18-6 3V6l6-3 6 3 6-3v15l-6 3-6-3ZM9 3v15M15 6v15"/></svg>Xem đường đi<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                <p class="closing reveal" style="--delay: .8s">Một ngày đáng nhớ hơn<br>khi có bạn ở bên.</p>
+            </section>
+        </article>
+        <div class="page-footer"><span>Made with love</span><b aria-hidden="true">✧</b><span>See you there</span></div>
+        <button class="replay" type="button" id="replayButton" hidden>Mở lại lời mời</button>
+    </main>
+    <section class="cover" id="cover" aria-labelledby="coverTitle" hidden>
+        <p class="cover-kicker">A LITTLE INVITATION FOR YOU</p>
+        <h2 id="coverTitle">Có một lời mời<br>dành riêng cho bạn.</h2>
+        <p class="cover-name" id="coverName">Bạn thân mến</p>
+        <div class="envelope" aria-hidden="true"><div class="envelope-back"></div><div class="envelope-letter"><span>You're invited</span><small>17 · 10 · 2026</small></div><div class="envelope-front"></div><div class="envelope-flap"></div><div class="wax-seal">KL</div></div>
+        <button type="button" class="open-button" id="openButton">Mở thiệp mời<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+        <p class="cover-note">Một khoảnh khắc đặc biệt, cùng những người đặc biệt.</p>
+    </section>
+    <dialog id="linkDialog" aria-labelledby="dialogTitle">
+        <div class="dialog-heading"><h2 id="dialogTitle">Gửi một lời mời</h2><button type="button" class="close-dialog" id="closeDialog" aria-label="Đóng"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+        <p class="dialog-description">Điền tên bất kỳ, sao chép link rồi gửi cho bạn ấy.<br>Thiệp sẽ tự hiện đúng tên bạn vừa nhập.</p>
+        <form id="linkForm">
+            <label class="field-label" for="guestInput">Tên người nhận</label>
+            <input id="guestInput" type="text" placeholder="Ví dụ: Tiểu Băng" maxlength="100" autocomplete="off" required>
+            <label class="field-label" for="generatedLink">Link thiệp mời</label>
+            <input id="generatedLink" type="text" readonly placeholder="Link sẽ hiện khi bạn nhập tên" aria-label="Link thiệp mời, có thể chọn và sao chép">
+            <div class="dialog-actions"><button type="submit" class="primary-button" id="copyLinkButton">Sao chép link</button><button type="button" class="secondary-button" id="previewButton">Xem trước thiệp</button></div>
+        </form>
+        <p class="status" id="linkStatus" role="status" aria-live="polite"></p>
+        <p class="hosting-note" id="hostingNote" hidden>Thiệp đang mở từ máy của bạn. Để bạn bè mở được link, hãy đưa thiệp lên một địa chỉ web công khai, rồi tạo link từ địa chỉ đó.</p>
+        <details><summary>Tạo link cho nhiều người</summary><p class="bulk-description">Mỗi dòng là một tên. Chạm vào tên để xem thiệp, hoặc sao chép link bên cạnh.</p><textarea id="bulkNames" aria-label="Danh sách tên người nhận" placeholder="Ví dụ: Tiểu Băng&#10;Hồ Minh Ân"></textarea><button type="button" class="secondary-button" id="bulkButton" style="margin-top: 10px">Tạo danh sách link</button><ul class="bulk-list" id="bulkLinks"></ul></details>
+    </dialog>
+    <noscript><p class="noscript">Bật JavaScript để mở phong thư và hiển thị tên người nhận từ link.</p></noscript>
+    <script>
+        (() => {
+            'use strict';
+            const $ = (id) => document.getElementById(id);
+            const DEFAULT_NAME = 'Bạn thân mến';
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const normalizeName = (value) => Array.from(String(value || '').normalize('NFC').replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/gu, ' ').trim()).slice(0, 100).join('');
+            function guestFromUrl() {
+                let hashName = '';
+                try {
+                    // Decode after replacing separators to preserve hyphens in the actual name.
+                    hashName = decodeURIComponent(window.location.hash.slice(1).replaceAll('-', ' '));
+                } catch { /* A malformed fragment can still use a valid legacy query name. */ }
+                const params = new URLSearchParams(window.location.search);
+                return normalizeName(hashName || params.get('name') || params.get('ten') || params.get('to'));
+            }
+            const cover = $('cover');
+            const main = $('mainContent');
+            const header = document.querySelector('.site-header');
+            const dialog = $('linkDialog');
+            let openingTimer;
+            let confettiTimer;
+
+            function setGuest(name) {
+                const displayName = normalizeName(name) || DEFAULT_NAME;
+                $('guestName').textContent = displayName;
+                $('guestName').classList.toggle('long-name', displayName.length > 24);
+                $('coverName').textContent = displayName;
+                document.title = `${displayName} · Lời mời tốt nghiệp của Khiết Lôi`;
+            }
+            function clearConfetti() {
+                window.clearTimeout(confettiTimer);
+                document.querySelectorAll('.confetti').forEach((piece) => piece.remove());
+            }
+            function celebrate() {
+                clearConfetti();
+                if (reduceMotion.matches) return;
+                const colors = ['#b49a62', '#7ea6ca', '#b9cfe3', '#4f7aa2'];
+                const fragment = document.createDocumentFragment();
+                for (let i = 0; i < 32; i++) {
+                    const piece = document.createElement('span');
+                    piece.className = 'confetti';
+                    piece.setAttribute('aria-hidden', 'true');
+                    piece.style.left = `${Math.random() * 100}%`;
+                    piece.style.background = colors[i % colors.length];
+                    piece.style.animationDelay = `${Math.random() * .7}s`;
+                    piece.style.setProperty('--sway', `${Math.random() * 160 - 80}px`);
+                    if (i % 3 === 0) piece.style.borderRadius = '50%';
+                    fragment.append(piece);
+                }
+                document.body.append(fragment);
+                confettiTimer = window.setTimeout(clearConfetti, 4500);
+            }
+            function showCover() {
+                window.clearTimeout(openingTimer);
+                clearConfetti();
+                document.body.classList.remove('revealed');
+                document.body.classList.add('cover-active');
+                cover.hidden = false;
+                cover.classList.remove('opening');
+                $('openButton').disabled = false;
+                main.inert = true;
+                header.inert = true;
+                window.scrollTo(0, 0);
+                $('openButton').focus({ preventScroll: true });
+            }
+            function openInvitation() {
+                $('openButton').disabled = true;
+                cover.classList.add('opening');
+                openingTimer = window.setTimeout(() => {
+                    cover.hidden = true;
+                    document.body.classList.remove('cover-active');
+                    main.inert = false;
+                    header.inert = false;
+                    document.body.classList.add('revealed');
+                    $('guestName').tabIndex = -1;
+                    $('guestName').focus({ preventScroll: true });
+                    celebrate();
+                }, reduceMotion.matches ? 0 : 650);
+            }
+            function invitationUrl(name) {
+                const displayName = normalizeName(name);
+                const root = new URL('./', document.baseURI);
+                // Keep letters readable while protecting punctuation and literal hyphens.
+                const fragment = displayName.split(' ').map((word) => word.replace(/[^\p{L}\p{M}\p{N}]/gu,
+                    (character) => encodeURIComponent(character).replace(/[!'()*-]/g,
+                        (literal) => `%${literal.charCodeAt(0).toString(16).toUpperCase()}`))).join('-');
+                return `${root.href}#${fragment}`;
+            }
+            function updateLink() {
+                const name = normalizeName($('guestInput').value);
+                $('generatedLink').value = name ? invitationUrl(name) : '';
+                $('copyLinkButton').disabled = !name;
+                $('previewButton').disabled = !name;
+                $('linkStatus').textContent = '';
+            }
+            async function copyText(value) {
+                try {
+                    if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable');
+                    await navigator.clipboard.writeText(value);
+                    return true;
+                } catch {
+                    const temporary = document.createElement('textarea');
+                    temporary.value = value;
+                    temporary.style.cssText = 'position:fixed;left:0;top:0;width:1px;height:1px;opacity:0';
+                    dialog.append(temporary);
+                    temporary.select();
+                    let copied = false;
+                    try { copied = document.execCommand('copy'); } catch { /* Offer manual selection below. */ }
+                    temporary.remove();
+                    return copied;
+                }
+            }
+            async function copyInvitation(value) {
+                const copied = await copyText(value);
+                $('linkStatus').textContent = copied ? 'Đã sao chép link. Bạn có thể dán vào tin nhắn để gửi.' : 'Chưa sao chép tự động được. Link đã được chọn, hãy sao chép thủ công.';
+                if (!copied) {
+                    $('generatedLink').value = value;
+                    $('generatedLink').focus();
+                    $('generatedLink').select();
+                }
+                return copied;
+            }
+            $('openButton').addEventListener('click', openInvitation);
+            $('replayButton').addEventListener('click', showCover);
+            $('createLinkButton').addEventListener('click', () => {
+                $('linkStatus').textContent = '';
+                dialog.showModal();
+                $('guestInput').focus();
+            });
+            $('closeDialog').addEventListener('click', () => dialog.close());
+            dialog.addEventListener('click', (event) => {
+                if (event.target !== dialog) return;
+                const box = dialog.getBoundingClientRect();
+                if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
+            });
+            $('guestInput').addEventListener('input', updateLink);
+            $('generatedLink').addEventListener('click', () => $('generatedLink').select());
+            $('linkForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const name = normalizeName($('guestInput').value);
+                if (name) await copyInvitation(invitationUrl(name));
+            });
+            $('previewButton').addEventListener('click', () => {
+                const name = normalizeName($('guestInput').value);
+                if (!name) return;
+                dialog.close();
+                setGuest(name);
+                showCover();
+            });
+            $('bulkButton').addEventListener('click', () => {
+                const names = [...new Set($('bulkNames').value.split(/\n|,/).map(normalizeName).filter(Boolean))];
+                const fragment = document.createDocumentFragment();
+                for (const name of names) {
+                    const item = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.textContent = name;
+                    link.href = invitationUrl(name);
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.textContent = 'Sao chép';
+                    button.setAttribute('aria-label', `Sao chép link cho ${name}`);
+                    button.addEventListener('click', async () => {
+                        button.disabled = true;
+                        const copied = await copyInvitation(invitationUrl(name));
+                        button.textContent = copied ? 'Đã chép ✓' : 'Sao chép';
+                        button.disabled = false;
+                    });
+                    item.append(link, button);
+                    fragment.append(item);
+                }
+                $('bulkLinks').replaceChildren(fragment);
+                $('linkStatus').textContent = names.length ? `Đã tạo ${names.length} link mời riêng.` : 'Nhập ít nhất một tên để tạo link.';
+            });
+            function displayInvitationFromUrl() {
+                const guest = guestFromUrl();
+                setGuest(guest);
+                $('createLinkButton').hidden = !!guest;
+                $('headerDate').hidden = !guest;
+                if (guest) showCover();
+                else {
+                    window.clearTimeout(openingTimer);
+                    clearConfetti();
+                    cover.hidden = true;
+                    main.inert = false;
+                    header.inert = false;
+                    document.body.classList.remove('cover-active');
+                    document.body.classList.add('revealed');
+                }
+            }
+            $('replayButton').hidden = false;
+            $('hostingNote').hidden = !(location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname));
+            updateLink();
+            window.addEventListener('hashchange', displayInvitationFromUrl);
+            displayInvitationFromUrl();
+        })();
+    </script>
+</body>
 </html>
